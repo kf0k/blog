@@ -1,0 +1,77 @@
+theme: jekyll-theme-chirpy
+lang: en
+timezone: Asia/Dubai
+
+title: kf0k
+tagline: Offensive security — AD, HTB writeups, red team ops.
+description: >-
+  Active Directory, Hack The Box writeups and red team notes
+  by @kf0k (Mohammed Al Kalbani).
+
+# The site is served at kf0k.github.io/blog/ — baseurl keeps that path.
+# If you later move the blog to kf0k.github.io root, set url: "https://kf0k.github.io"
+# and remove baseurl.
+url: "https://kf0k.github.io"
+baseurl: "/blog"
+
+github:
+  username: kf0k
+
+# Social / sidebar bio
+social:
+  name: Mohammed Al Kalbani
+  email: ""
+  links:
+    - https://github.com/kf0k
+    - https://instagram.com/kf0k
+    - https://www.linkedin.com/in/kf0k-mohammed-al-kalbani
+
+# Author shown on posts
+author:
+  name: Mohammed Al Kalbani
+  url: https://github.com/kf0k
+
+# Appearance
+theme_mode: dark                 # dark | light | (unset for auto)
+avatar: /assets/img/avatar.png   # add your face / logo at that path
+toc: true                        # table of contents on posts
+
+# Pagination & feed
+paginate: 10
+google_analytics:
+  id: ""
+
+# Pages generator
+pages:
+  categories: true
+  tags: true
+  archives: true
+
+# Chirpy defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      pin: false
+      math: false
+      mermaid: true
+      author: Mohammed Al Kalbani
+  - scope:
+      path: _tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+# Keep sources out of the built site
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - tools
+  - README.md
+  - LICENSE
+  - "*.config.js"
+  - package*.json
