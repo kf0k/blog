@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Chirpy's last_modified_at plugin reads git history — needs full depth.
+          # Chirpy's last_modified_at plugin reads git history.
           fetch-depth: 0
 
       - name: Setup Pages
@@ -37,8 +37,9 @@ jobs:
       - name: Build site
         env:
           JEKYLL_ENV: production
-        run: |
-          bundle exec jekyll build -d "_site${{ steps.pages.outputs.base_path }}"
+        # baseurl is set in _config.yml (/blog). Do NOT pass --baseurl here —
+        # it would double-apply and produce broken asset URLs.
+        run: bundle exec jekyll build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

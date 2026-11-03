@@ -1,0 +1,14 @@
+# Sidebar / footer social links. Each entry's `url` is read from
+# site.social.links first, else falls back to a template under /tabs/about/.
+- type: github
+  icon: 'fab fa-github'
+- type: linkedin
+  icon: 'fab fa-linkedin'
+- type: instagram
+  icon: 'fab fa-instagram'
+- type: rss
+  icon: 'fas fa-rss'
+  noblank: true
+- type: email
+  icon: 'fas fa-envelope'
+  noblank: true

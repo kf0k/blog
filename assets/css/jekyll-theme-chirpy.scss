@@ -1,0 +1,13 @@
+---
+# This file is the entry point that tells Jekyll to compile the Chirpy theme's
+# SCSS from the gem. Without it, no stylesheet is produced and the site renders
+# unstyled — which is what broke on first deploy.
+---
+
+@use "main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+";
+
+/* ---- append your custom styles below ---- */
