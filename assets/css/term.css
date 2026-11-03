@@ -1,0 +1,113 @@
+/* ---------------------------------------------------------------
+   kf0k terminal — typed-replay code block styling
+   Ubuntu / Kali look. Loaded by `{% include term-boot.html %}`.
+--------------------------------------------------------------- */
+
+.kf-term {
+  --kf-bg: #300a24;          /* Ubuntu default purple */
+  --kf-chrome-top: #504b45;
+  --kf-chrome-bot: #3c3b37;
+  --kf-chrome-border: #2b2a28;
+  --kf-text: #eeeeec;
+  --kf-prompt: #8ae234;      /* Kali green */
+  --kf-blue: #729fcf;
+  --kf-yellow: #fce94f;
+  --kf-magenta: #ad7fa8;
+  --kf-red: #ef2929;
+  --kf-cyan: #34e2e2;
+  --kf-dim: #d4cfca;
+
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  background: var(--kf-bg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+  overflow: hidden;
+  border: 1px solid #4a1839;
+  font-family: "Ubuntu Mono", "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+}
+
+.kf-term__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 7px 12px;
+  background: linear-gradient(to bottom, var(--kf-chrome-top), var(--kf-chrome-bot));
+  border-bottom: 1px solid var(--kf-chrome-border);
+  user-select: none;
+}
+.kf-term__dots { display: flex; gap: 6px; align-items: center; }
+.kf-term__dot {
+  width: 13px; height: 13px; border-radius: 50%;
+}
+.kf-term__dot--r { background: radial-gradient(circle at 35% 35%, #ff8a7a, #ed3b2b); }
+.kf-term__dot--y { background: radial-gradient(circle at 35% 35%, #ffd98a, #e8a73c); }
+.kf-term__dot--g { background: radial-gradient(circle at 35% 35%, #8ae89a, #43a047); }
+
+.kf-term__title {
+  margin-left: 12px; color: var(--kf-dim); font-size: 12px; font-weight: 500;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.kf-term__ctrls { display: flex; gap: 6px; }
+.kf-term__btn {
+  background: #1a0613; border: 1px solid #4a1839; color: var(--kf-dim);
+  padding: 3px 10px; border-radius: 5px; font-size: 10.5px; cursor: pointer;
+  font-family: inherit;
+}
+.kf-term__btn:hover { background: #2a0a1f; border-color: #6a2655; color: #fff; }
+.kf-term__btn--primary { background: var(--kf-prompt); border-color: var(--kf-prompt); color: #0a0d13; font-weight: 600; }
+.kf-term__btn--primary:hover { background: #a7e86b; border-color: #a7e86b; color: #000; }
+
+.kf-term__body {
+  margin: 0; padding: 16px 20px;
+  font-size: 13.5px; line-height: 1.6;
+  color: var(--kf-text);
+  background: var(--kf-bg);
+  white-space: pre;
+  overflow-x: auto;
+  min-height: 2em;
+}
+
+.kf-term__prompt { color: var(--kf-prompt); font-weight: 600; }
+.kf-term__cmd { color: var(--kf-text); }
+.kf-term__out { color: var(--kf-text); }
+.kf-term__out .k-blue    { color: var(--kf-blue); }
+.kf-term__out .k-yellow  { color: var(--kf-yellow); }
+.kf-term__out .k-magenta { color: var(--kf-magenta); }
+.kf-term__out .k-red     { color: var(--kf-red); font-weight: 600; }
+.kf-term__out .k-green   { color: var(--kf-prompt); }
+.kf-term__out .k-dim     { color: var(--kf-dim); }
+
+.kf-term__caret {
+  display: inline-block; width: 8px; height: 1em;
+  background: var(--kf-text); vertical-align: text-bottom;
+  margin-left: 2px; animation: kf-blink 1s step-end infinite;
+}
+@keyframes kf-blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+.kf-term__scrub {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 12px; background: #1a0613; border-top: 1px solid #4a1839;
+  font-size: 11px; color: #a3938c;
+}
+.kf-term__time { font-variant-numeric: tabular-nums; min-width: 3.2em; }
+.kf-term__bar-outer {
+  flex: 1; height: 3px; background: #4a1839; border-radius: 2px;
+  position: relative; cursor: pointer;
+}
+.kf-term__bar-inner {
+  height: 100%; background: linear-gradient(to right, var(--kf-prompt), #58a6ff);
+  border-radius: 2px; width: 0;
+}
+.kf-term__bar-knob {
+  position: absolute; top: -3px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--kf-prompt); transform: translateX(-50%);
+  left: 0;
+}
+.kf-term__speed {
+  padding: 2px 6px; background: #4a1839; border-radius: 3px; color: var(--kf-dim);
+  cursor: pointer; user-select: none;
+}
+
+/* Hide the raw code block once the terminal has mounted on top */
+pre > code.language-terminal { display: none; }
+
+/* Light theme adjustment — the terminal stays dark (that's the point) */
+html[data-mode="light"] .kf-term { box-shadow: 0 10px 25px rgba(0, 0, 0, .25); }
