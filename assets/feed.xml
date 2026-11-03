@@ -1,6 +1,0 @@
----
-layout: compress
-# RSS feed served at /feed.xml by Chirpy's layout.
-permalink: /feed.xml
----
-{% include xml/feed.xml %}
